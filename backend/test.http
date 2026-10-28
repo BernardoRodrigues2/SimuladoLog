@@ -1,0 +1,199 @@
+### Teste de Rota padrão 
+GET http://localhost:3000/
+Content-Type: application/json
+
+### Teste de cadastro de Funcionarios
+POST http://localhost:3000/funcionario
+Content-Type: application/json
+
+{
+    "nome": "Ana",
+    "email": "ana@gmail.com",
+    "senha": "123"
+}
+
+### Teste de cadastro de Funcionarios 2
+POST http://localhost:3000/funcionario
+Content-Type: application/json
+
+{
+    "nome": "Marcos",
+    "email": "marcos@gmail.com",
+    "senha": "456"
+}
+
+### Teste de cadastro de Funcionarios 3
+POST http://localhost:3000/funcionario
+Content-Type: application/json
+
+{
+    "nome": "Carlos",
+    "email": "carlos@gmail.com",
+    "senha": "789"
+}
+
+### Teste de Login no Funcionario cadastrado 
+# @name loginReq
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "carlos@gmail.com",
+    "senha": "789"
+}
+
+### Teste de cadastro de Motorista 1
+POST http://localhost:3000/motorista
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "nome": "Ana",
+    "cnh": "12345678904",
+    "cpf": "12345678915",
+    "telefone": "48999998888"
+}
+
+### Teste de cadastro de Motorista 2
+POST http://localhost:3000/motorista
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "nome": "Marcos",
+    "cnh": "12345678907",
+    "cpf": "12345678919",
+    "telefone": "48999992888"
+}
+
+### Teste de cadastro de Motorista 3
+POST http://localhost:3000/motorista
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "nome": "Carlos",
+    "cnh": "12345678905",
+    "cpf": "12345678916",
+    "telefone": "48999998889"
+}
+
+
+### Teste de cadastro de Cargas 1
+POST http://localhost:3000/carga
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "descricao": "Descrição Produto 1",
+    "peso": 10.2,
+    "volume": 15.2,
+    "codRastreio": 1234,
+    "idMotorista": 1
+}
+
+### Teste de cadastro de Cargas 2
+POST http://localhost:3000/carga
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "descricao": "Descrição Produto 2",
+    "peso": 12.2,
+    "volume": 17.2,
+    "codRastreio": 3214,
+    "idMotorista": 2
+}
+
+### Teste de cadastro de Cargas 3
+POST http://localhost:3000/carga
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "descricao": "Descrição Produto 3",
+    "peso": 13.2,
+    "volume": 19.2,
+    "codRastreio": 4321,
+    "idMotorista": 3
+}
+
+### Teste de cadastro de entrega 1 
+POST http://localhost:3000/entrega
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "cidade": "Tijucas",
+    "destino": "Itapema",
+    "status": "TRANSITO",
+    "data": "2026-10-18",
+    "hora": "15:55:00",
+    "idCarga": 3
+}
+
+### Teste de cadastro de entrega 2 
+POST http://localhost:3000/entrega
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "cidade": "Itapema",
+    "destino": "Itajai",
+    "status": "TRANSITO",
+    "data": "2026-10-18",
+    "hora": "15:55:00",
+    "idCarga": 4
+}
+
+### Teste de cadastro de entrega 3 
+POST http://localhost:3000/entrega
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "cidade": "Itajai",
+    "destino": "Brusque",
+    "status": "ENTREGUE",
+    "data": "2026-10-18",
+    "hora": "15:55:00",
+    "idCarga": 5
+}
+
+### Teste de atualização de entrega 
+PUT http://localhost:3000/entrega/4
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "cidade": "ItajaiUpd",
+    "destino": "BrusqueUpd",
+    "status": "ENTREGUE",
+    "data": "2026-10-18",
+    "hora": "15:55:00",
+    "idCarga": 5
+}
+
+### Teste de Listagem de Motoristas
+GET  http://localhost:3000/motoristas
+Authorization: {{loginReq.response.body.token}}
+
+### Teste de Consulta de Motoristas
+GET http://localhost:3000/motorista/1
+Authorization: {{loginReq.response.body.token}}
+
+### Teste de Atualização de Motoristas
+PUT  http://localhost:3000/motorista/4
+Content-Type: application/json
+Authorization: {{loginReq.response.body.token}}
+
+{
+    "nome": "CarlosUPD",
+    "cnh": "12345678905",
+    "cpf": "12345678916",
+    "telefone": "48999998889"
+}
+
+### Teste de Exclusão de Motoristas
+DELETE   http://localhost:3000/motorista/5
+Authorization: {{loginReq.response.body.token}}

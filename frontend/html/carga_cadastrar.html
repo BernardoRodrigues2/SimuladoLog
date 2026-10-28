@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_cad.css">
+    <script src="../js/index.js" defer></script>
+    <title>Sistema de Logistica</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="./index.html">Home</a>&emsp;&emsp;
+
+            <span class="titulo_menu">Autenticação</span>&emsp;
+            <span id="verificar_log"></span>
+            <br><br>
+            <hr><br>
+
+            <span class="titulo_menu">Funcionario</span>&emsp;
+            <a href="./funcionario_cadastrar.html">Cadastrar</a>&emsp;
+            <br><br>
+            <hr>
+            <span class="titulo_menu">Motorista</span>&emsp;
+            <a href="./motorista_cadastrar.html">Cadastrar</a>&emsp;
+            <a href="./motorista_listar.html">Listar</a>&emsp;
+            <a href="./motorista_consultar_codigo.html">Consultar por Código</a>&emsp;
+            <a href="./motorista_atualizar.html">Atualizar</a>&emsp;
+            <a href="./motorista_apagar.html">Excluir</a>&emsp;
+            <br><br>
+            <hr><br>
+
+            <span class="titulo_menu">Entrega</span>&emsp;
+            <a href="./entrega_cadastrar.html">Cadastrar</a>&emsp;
+            <a href="./entrega_atualizar.html">Atualizar</a>&emsp;
+            <br><br>
+            <hr><br>
+
+            <span class="titulo_menu">Carga</span>&emsp;
+            <a href="./carga_cadastrar.html">Cadastrar</a>&emsp;
+            <br><br>
+            <hr><br>
+
+        </nav>
+    </header>
+    <main>
+        <h1>Sistema de Logistica</h1>
+        <br><br>
+
+        <form>
+            <label for="descricao">Decrição:</label><br>
+            <input type="text" id="descricao"><br><br>
+
+            <label for="peso">Peso:</label><br>
+            <input type="number" id="peso"><br><br>
+
+            <label for="volume">Volume:</label><br>
+            <input type="number" id="volume"><br><br>
+
+            <label for="codRastreio">Código de Rastreio:</label><br>
+            <input type="number" id="codRastreio"><br><br>
+
+            <label for="idMotorista">Código do Motorista:</label><br>
+            <input type="number" id="idMotorista"><br><br>
+
+            <button id="btn_cadastrar">Cadastrar</button>
+        </form>
+        <div id="resposta"></div>
+    </main>
+</body>
+</html>
